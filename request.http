@@ -1,0 +1,91 @@
+GET http://localhost:1337/api/
+###
+GET http://localhost:1337/api/fdsfsdfsddfsd
+Content-Type: application/json
+
+{
+    "data":{
+        "firstName": "Leonardo",
+        "lastName": "Di carpaccio"
+    }
+}
+###
+GET http://localhost:1337/api/movies
+###
+GET https://api.themoviedb.org/3/search/movie?query=Jack+Reacher&api_key=c6a980d3de8f528a560e5f61c76ebedc
+###
+POST http://localhost:1337/api/movies
+Content-Type: application/json
+
+{
+  "data":{
+    "description": "When a gunman takes five lives with six shots, all evidence points to the suspect in custody. On interrogation, the suspect offers up a single note: \"Get Jack Reacher!\" So begins an extraordinary chase for the truth, pitting Jack Reacher against an unexpected enemy, with a skill for violence and a secret to keep.",
+    "title": "Jack Reacher",
+    "releaseDate": "2012-12-20",
+    "director": "Jean Mich"
+    } 
+}
+
+###
+POST http://localhost:1337/api/movies
+Content-Type: application/json
+
+{
+  "data":{
+    "description": "When a gunman takes five lives with six shots, all evidence points to the suspect in custody. On interrogation, the suspect offers up a single note: \"Get Jack Reacher!\" So begins an extraordinary chase for the truth, pitting Jack Reacher against an unexpected enemy, with a skill for violence and a secret to keep.",
+    "title": "Jack Reacher",
+    "releaseDate": "2012-12-20",
+    "director": "Jean Mich"
+    } 
+}
+###
+GET http://localhost:1337/api/actors
+###
+
+POST http://localhost:1337/api/actors
+Content-Type: application/json
+
+{
+    "data":{
+        "firstName": "Rosamund",
+        "lastName": "Pike"
+    }
+}
+###
+
+PUT http://localhost:1337/api/movies/2
+Content-Type: application/json
+
+{
+  "data":{
+    "description": "When a gunman takes five lives with six shots, all evidence points to the suspect in custody. On interrogation, the suspect offers up a single note: \"Get Jack Reacher!\" So begins an extraordinary chase for the truth, pitting Jack Reacher against an unexpected enemy, with a skill for violence and a secret to keep.",
+    "title": "Jack Reacher",
+    "releaseDate": "2012-12-20",
+    "director": "Jean Mich",
+    "actors":[2]
+    } 
+}
+###
+GET http://localhost:1337/api/movies/?populate=actors
+
+###
+GET http://localhost:1337/api/movies?filters[title][$startsWith]=J
+
+###
+PUT http://localhost:1337/api/actors/3
+Content-Type: application/json
+
+{
+    "data":{
+        "firstName": "Leonardo",
+        "lastName": "Di carpaccio"
+    }
+}
+###
+POST http://localhost:1337/api/auth/local
+Content-Type: application/json
+
+{
+    "identifier": "SonGoku",
+    "password": "songoku123"
+}
