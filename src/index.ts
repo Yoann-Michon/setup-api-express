@@ -21,7 +21,8 @@ export const Actor = sequelize.define('actor', {
   lastName: DataTypes.STRING
 }, { timestamps: false});
 
-Actor.belongsToMany(Movie, { through: 'MovieActor' });
+Actor.belongsToMany(Movie, { through: 'MovieActor', timestamps: false});
+Movie.belongsToMany(Actor, { through: 'MovieActor', timestamps: false});
 
 sequelize.sync();
 //sequelize.sync({force: true});
@@ -35,21 +36,6 @@ apiRouter.use('/movies', moviesRouter );
 apiRouter.use('/actors', actorsRouter);
 
 app.use("/api", apiRouter);
-
-/**
-app.get('/api/', (req, res) => {
-  res.send('Hello world!');
-});
-
-
-app.get('/api/:tata', (req, res) => {
-  console.log(req.body);
-  res.send('Hello ');
-});
-*/
-
-
-
 
 app.listen(1337, () => {
   console.log('Server is listening on port 1337');

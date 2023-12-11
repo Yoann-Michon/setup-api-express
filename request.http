@@ -52,6 +52,16 @@ Content-Type: application/json
     }
 }
 ###
+PUT http://localhost:1337/api/actors/3
+Content-Type: application/json
+
+{
+    "data":{
+        "firstName": "Rosamund",
+        "lastName": "Pike"
+    }
+}
+###
 
 PUT http://localhost:1337/api/movies/2
 Content-Type: application/json
@@ -89,3 +99,14 @@ Content-Type: application/json
     "identifier": "SonGoku",
     "password": "songoku123"
 }
+
+###
+DELETE  http://localhost:1337/api/actors/2
+
+###
+GET  http://localhost:1337/api/movies/2
+###
+POST http://localhost:1337/api/movies/
+
+###
+PUT http://localhost:1337/api/movies/
