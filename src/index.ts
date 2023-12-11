@@ -2,6 +2,29 @@ import express from 'express';
 import { actorsRouter } from './router/actors';
 import { moviesRouter } from './router/movies';
 import { authRouter } from './router/auth';
+import { DataTypes, Sequelize } from 'sequelize';
+
+const sequelize = new Sequelize({
+  dialect: 'sqlite',
+  storage: './db/database.sqlite'
+});
+
+export const Movie = sequelize.define('movie', {
+  name: DataTypes.STRING,
+  description: DataTypes.STRING,
+  director: DataTypes.STRING,
+  releaseDate: DataTypes.DATE
+}, { timestamps: false});
+
+export const Actor = sequelize.define('actor', {
+  firstName: DataTypes.STRING,
+  lastName: DataTypes.STRING
+}, { timestamps: false});
+
+Actor.belongsToMany(Movie, { through: 'MovieActor' });
+
+sequelize.sync();
+//sequelize.sync({force: true});
 
 const app = express();
 app.use(express.json());
@@ -24,6 +47,8 @@ app.get('/api/:tata', (req, res) => {
   res.send('Hello ');
 });
 */
+
+
 
 
 app.listen(1337, () => {

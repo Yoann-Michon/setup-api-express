@@ -21,7 +21,7 @@ moviesRouter.get("/?populate", (req, res) => {
     console.log('liste des films', populateActors);
 });
 
-moviesRouter.get("/?filters[title][$startsWith]=J", (req, res) => {
+moviesRouter.get("/", (req, res) => {
     console.log('liste des films', req.body);
 });
 
