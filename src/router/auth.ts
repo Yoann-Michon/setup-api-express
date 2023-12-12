@@ -59,14 +59,18 @@ authRouter.post("/local/register",async (req,res) => {
 });
 
 authRouter.post("/change-password",middleware, async (req,res)=>{
-  const log = await User.findOne({where: {login:req.body.login}})
-  if (log){
+  const login = await User.findOne({where: {login:req.body.login}})
+  console.log(login);
+  
+  if (login){
     const hashedPassword = await bcrypt.hash(req.body.password, saltRounds);
     
-    await log.update(req.body.password, hashedPassword);
+    await login.update({password: hashedPassword});
 
-    delete log.dataValues.password;
-    res.json({ message: 'Password changed successfully'});
+    delete login.dataValues.password;
+    res.json({ message: 'Password changed successfully',login});
+  }else{
+    res.status(400)
   }
   
 })

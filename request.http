@@ -99,8 +99,8 @@ POST http://localhost:1337/api/auth/local
 Content-Type: application/json
 
 {
-    "login": "SonGoku",
-    "password": "songoku123"
+    "login": "SsonGocdsqku",
+    "password": "songokdu1235699"
 }
 
 ###
@@ -129,13 +129,13 @@ DELETE  http://localhost:1337/api/movies/1
 GET http://localhost:1337/api/users/me
 
 ###
-POST http://localhost:1337/api/change-password
+POST http://localhost:1337/api/auth/change-password
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiU29uR29rdSIsImlhdCI6MTcwMjM4MDU1NSwiZXhwIjoxNzAyMzg0MTU1fQ.dX3YiqY6AjcBH1ez46KwjSUiz9_DF4Zhlwg7CGsaSwA
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhVG9TaWduIjp7InVzZXJJZCI6MX0sImlhdCI6MTcwMjM5NTExNSwiZXhwIjoxNzAyMzk4NzE1fQ.vtxrlr1FnFHPxmpL6Shfbau8btz6H7QYQr-Cahgof_s
 
 {
     "login": "SsonGocdsqku",
-    "password": "songokdu1234"
+    "password": "songokdu1235699"
 }
 
 ###
