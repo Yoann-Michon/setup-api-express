@@ -110,3 +110,6 @@ POST http://localhost:1337/api/movies/
 
 ###
 PUT http://localhost:1337/api/movies/
+
+###
+DELETE  http://localhost:1337/api/movies/1

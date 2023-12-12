@@ -71,3 +71,20 @@ moviesRouter.put("/:id", async (req, res) => {
 
     console.log('liste des films', req.body);
 });
+
+///////////////////////////
+//         DELETE       //
+/////////////////////////
+
+moviesRouter.delete("/:id", async (req, res) => {
+    const movieToDestroy = await Movie.findOne({where: { id:req.params.id }});
+    if(movieToDestroy){
+        const destroyMovie = await movieToDestroy.destroy();
+        res.json(destroyMovie)
+    }
+    else {
+        res.status(400).json({ error: "movie to destroy doesn't exist"})
+    }
+
+    console.log('liste des films', req.body);
+});
