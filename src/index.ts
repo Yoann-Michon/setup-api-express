@@ -3,6 +3,7 @@ import { actorsRouter } from './router/actors';
 import { moviesRouter } from './router/movies';
 import { authRouter } from './router/auth';
 import { DataTypes, Sequelize } from 'sequelize';
+import { userRouter } from './router/user';
 
 const sequelize = new Sequelize({
   dialect: 'sqlite',
@@ -39,6 +40,7 @@ const apiRouter = express.Router();
 apiRouter.use('/auth', authRouter);
 apiRouter.use('/movies', moviesRouter );
 apiRouter.use('/actors', actorsRouter);
+apiRouter.use('/users', userRouter);
 
 app.use("/api", apiRouter);
 

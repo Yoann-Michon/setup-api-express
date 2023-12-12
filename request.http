@@ -86,6 +86,7 @@ GET http://localhost:1337/api/movies?filters[title][$startsWith]=J
 ###
 PUT http://localhost:1337/api/actors/3
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiU29uR29rdSIsImlhdCI6MTcwMjM4MDU1NSwiZXhwIjoxNzAyMzg0MTU1fQ.dX3YiqY6AjcBH1ez46KwjSUiz9_DF4Zhlwg7CGsaSwA
 
 {
     "data":{
@@ -98,7 +99,7 @@ POST http://localhost:1337/api/auth/local
 Content-Type: application/json
 
 {
-    "identifier": "SonGoku",
+    "login": "SonGoku",
     "password": "songoku123"
 }
 
@@ -123,3 +124,20 @@ PUT http://localhost:1337/api/movies/
 
 ###
 DELETE  http://localhost:1337/api/movies/1
+
+###
+GET http://localhost:1337/api/users/me
+
+###
+POST http://localhost:1337/api/change-password
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiU29uR29rdSIsImlhdCI6MTcwMjM4MDU1NSwiZXhwIjoxNzAyMzg0MTU1fQ.dX3YiqY6AjcBH1ez46KwjSUiz9_DF4Zhlwg7CGsaSwA
+
+{
+    "login": "SsonGocdsqku",
+    "password": "songokdu1234"
+}
+
+###
+GET http://localhost:1337/api/users/me
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcwMjM4Nzg5MywiZXhwIjoxNzAyMzkxNDkzfQ.y0t96Wk_NbhoR-2nTE9SB-ZJusEwyU4KIULAKKL4guA

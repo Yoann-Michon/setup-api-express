@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { Actor } from "..";
+import { middleware } from "./middleware";
 
 export const actorsRouter = Router();
 
@@ -36,7 +37,7 @@ actorsRouter.get("/:id", async (req, res) => {
     console.log('liste des acteurs', actorToUpdate);
 });
 
-actorsRouter.put("/:id", async (req, res) => {
+actorsRouter.put("/:id",middleware, async (req, res) => {
     const actorToUpdate = await Actor.findOne({where: { id: req.params.id }})
     if(actorToUpdate){
         const upActor = await actorToUpdate.update(req.body.data);
@@ -53,7 +54,7 @@ actorsRouter.put("/:id", async (req, res) => {
 //         DELETE       //
 /////////////////////////
 
-actorsRouter.delete("/:id", async (req, res) => {
+actorsRouter.delete("/:id", middleware,async (req, res) => {
     const actorToDestroy = await Actor.findOne({where: { id:req.params.id }});
     if(actorToDestroy){
         const destroyActor = await actorToDestroy.destroy();
