@@ -27,6 +27,10 @@ actorsRouter.get("/", async (req, res) => {
     })
 });
 
+///////////////////////////
+//         PUT          //
+/////////////////////////
+
 actorsRouter.get("/:id", async (req, res) => {
     const actorToUpdate = await Actor.findOne({where: { id: req.params.id }})
     console.log('liste des acteurs', actorToUpdate);
@@ -45,6 +49,9 @@ actorsRouter.put("/:id", async (req, res) => {
     console.log('liste des acteurs', req.body);
 });
 
+///////////////////////////
+//         DELETE       //
+/////////////////////////
 
 actorsRouter.delete("/:id", async (req, res) => {
     const actorToDestroy = await Actor.findOne({where: { id:req.params.id }});

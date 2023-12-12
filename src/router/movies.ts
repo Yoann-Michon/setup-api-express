@@ -1,6 +1,7 @@
 import { Router } from "express";
-import { Movie } from "..";
+import { Actor, Movie } from "..";
 import { Where } from "sequelize/types/utils";
+import { error } from "console";
 
 export const moviesRouter = Router();
 ////////////////////////////
@@ -22,15 +23,33 @@ export const moviesRouter = Router();
 ///////////////////////////
 //         GET          //
 /////////////////////////
-
-moviesRouter.get("/", (req, res) => {
+/**
+ * moviesRouter.get("/", (req, res) => {
     console.log('liste des films', req.body);
 });
+ */
+
 
 moviesRouter.get("/:id", async (req, res) => {
     const movie=await Movie.findOne({where: { id: req.params.id }});
     res.json(movie)
 });
+
+moviesRouter.get("/", async (req, res) => {
+    const populate = req.query.populate;
+    console.log(populate) 
+    const movie = await Movie.findAll({
+        where: {
+        },
+        include: Actor
+    })
+    console.log('movie', movie);
+    res.send('ok')
+    
+});
+ 
+
+
 
 /**
  * moviesRouter.get("/", (req, res) => {
@@ -50,14 +69,6 @@ moviesRouter.post("/", async (req, res) => {
 ///////////////////////////
 //         PUT          //
 /////////////////////////
-
-moviesRouter.put("/", (req, res) => {
-    console.log('liste des films', req.body);
-});
-
-moviesRouter.put("/2", (req, res) => {
-    console.log('liste des films', req.body);
-});
 
 moviesRouter.put("/:id", async (req, res) => {
     const movieToUpdate = await Movie.findOne({where: { id: req.params.id }})

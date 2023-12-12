@@ -21,11 +21,11 @@ export const Actor = sequelize.define('actor', {
   lastName: DataTypes.STRING
 }, { timestamps: false});
 
-Actor.belongsToMany(Movie, { through: 'MovieActor', timestamps: false});
-Movie.belongsToMany(Actor, { through: 'MovieActor', timestamps: false});
+Movie.belongsToMany(Actor, {through : 'Movie_Actors', timestamps: false});
+Actor.belongsToMany(Movie, {through : 'Movie_Actors', timestamps: false});
 
-sequelize.sync();
-//sequelize.sync({force: true});
+// sequelize.sync();
+sequelize.sync({force: true});
 
 const app = express();
 app.use(express.json());

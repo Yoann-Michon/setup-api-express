@@ -16,4 +16,12 @@ authRouter.post("/local", (req, res) => {
 
 authRouter.get("/local", (req, res) => {
     console.log('toto', req.body);
-  });
+});
+
+///////////////////////////
+//         PUT          //
+/////////////////////////
+
+///////////////////////////
+//         DELETE       //
+/////////////////////////
