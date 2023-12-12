@@ -103,6 +103,14 @@ Content-Type: application/json
 }
 
 ###
+POST http://localhost:1337/api/auth/local/register
+Content-Type: application/json
+
+{
+    "login": "SsonGocdsqku",
+    "password": "songokdu123"
+}
+###
 DELETE  http://localhost:1337/api/actors/2
 
 ###
