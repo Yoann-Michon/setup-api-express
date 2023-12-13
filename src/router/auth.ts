@@ -26,7 +26,7 @@ authRouter.post("/local",async (req, res) => {
     const match = await bcrypt.compare(req.body.password, log.dataValues.password)
     if(match){
       const dataToSign: IJwtInfo = { userId: log.dataValues.id }
-      const token = jwt.sign({ dataToSign }, process.env.JWT_SECRET!, { expiresIn: '1h' });
+      const token = jwt.sign(dataToSign, process.env.JWT_SECRET!, { expiresIn: '1h' });
       res.json({
         token
       });

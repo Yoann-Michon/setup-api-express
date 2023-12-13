@@ -4,6 +4,7 @@ import { moviesRouter } from './router/movies';
 import { authRouter } from './router/auth';
 import { DataTypes, Sequelize } from 'sequelize';
 import { userRouter } from './router/user';
+import cors from 'cors';
 
 const sequelize = new Sequelize({
   dialect: 'sqlite',
@@ -35,6 +36,7 @@ sequelize.sync();
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 const apiRouter = express.Router();
 apiRouter.use('/auth', authRouter);
